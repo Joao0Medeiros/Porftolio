@@ -1,5 +1,6 @@
 import Maincontent from "./components/Maincontent";
-import Sidebar from "./components/Sidebar";
+// import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar"
 
 import "./styles/components/app.sass";
 
