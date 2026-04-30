@@ -1,15 +1,22 @@
 const AboutContainer = () => {
-    return (
-      <section className="about-container">
-        <h2>Sobre</h2>
-        <p>
-        Eu sou João Medeiros, um estudante de 17 anos que está cursando o 3º ano do Ensino Médio integrado com o curso de Desenvolvimento de Sistemas. Sou apaixonado por tecnologia desde que comecei a estudar programação e já aprendi várias linguagens, como HTML, CSS, JavaScript, C#, MySQL e React.
-        </p>
-        <p>
-        Estudar na Etec Ermelinda Giannini Teixeira tem sido uma ótima experiência, e pretendo seguir na área de tecnologia no futuro. Continuarei me atualizando e aprendendo novas habilidades, pois acredito que a aprendizagem contínua é fundamental para ter sucesso neste campo. Estou animado com as oportunidades que o futuro reserva e estou determinado a alcançar meus objetivos profissionais.
-        </p>
-      </section>  
-    );
-  };
-  
-  export default AboutContainer;
+  return (
+    <section className="about-container">
+      <h2>Sobre</h2>
+      <p>
+        Sou João Medeiros, tenho 19 anos, concluí o Ensino Médio e servi o
+        Exército Brasileiro durante 1 ano, onde atuei na área de TI. Também
+        cursei 1 semestre de Comércio Exterior e, atualmente, trabalho como
+        segurança.
+      </p>
+      <p>
+        Na área de tecnologia, realizo serviços como criação de sites,
+        manutenção de computadores (software e hardware), instalações,
+        atualizações e atendimento no local do cliente quando necessário. Tenho
+        experiência com Java, HTML, CSS, MySQL e React, além de estar sempre
+        buscando evoluir e aprender novas ferramentas.
+      </p>
+    </section>
+  );
+};
+
+export default AboutContainer;
