@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluxo Claro | Dashboard financeiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegacao principal">
+        <a class="brand" href="#">
+          <span class="brand-mark">FC</span>
+          <span>
+            <strong>Fluxo Claro</strong>
+            <small>Financas pessoais</small>
+          </span>
+        </a>
+
+        <nav class="nav-list" aria-label="Secoes">
+          <a class="active" href="#overview">Visao geral</a>
+          <a href="#transactions">Transacoes</a>
+          <a href="#budgets">Orcamentos</a>
+          <a href="#goals">Metas</a>
+        </nav>
+
+        <div class="sidebar-card">
+          <span>Meta do mes</span>
+          <strong>Economizar R$ 1.800</strong>
+          <div class="mini-progress" aria-hidden="true">
+            <span style="width: 68%"></span>
+          </div>
+          <small>68% concluido</small>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Abril de 2026</p>
+            <h1>Dashboard financeiro</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="themeToggle" aria-label="Alternar tema">
+              <span aria-hidden="true">T</span>
+            </button>
+            <button class="primary-button" id="exportButton">Exportar CSV</button>
+          </div>
+        </header>
+
+        <section class="metrics-grid" id="overview" aria-label="Indicadores financeiros">
+          <article class="metric-card positive">
+            <span>Saldo atual</span>
+            <strong id="currentBalance">R$ 0</strong>
+            <small id="balanceHint">Atualizado com suas transacoes</small>
+          </article>
+          <article class="metric-card">
+            <span>Receitas</span>
+            <strong id="incomeTotal">R$ 0</strong>
+            <small id="incomeHint">0 entradas registradas</small>
+          </article>
+          <article class="metric-card warning">
+            <span>Despesas</span>
+            <strong id="expenseTotal">R$ 0</strong>
+            <small id="expenseHint">0 saidas registradas</small>
+          </article>
+          <article class="metric-card">
+            <span>Taxa de economia</span>
+            <strong id="savingRate">0%</strong>
+            <small>Objetivo mensal: 25%</small>
+          </article>
+        </section>
+
+        <section class="quick-add-panel" aria-label="Adicionar transacao">
+          <div>
+            <p class="eyebrow">Lancamento rapido</p>
+            <h2>Adicionar transacao</h2>
+          </div>
+          <form class="transaction-form" id="transactionForm">
+            <label>
+              <span>Descricao</span>
+              <input id="titleInput" type="text" placeholder="Ex: Mercado" required />
+            </label>
+            <label>
+              <span>Categoria</span>
+              <input id="categoryInput" type="text" placeholder="Ex: Alimentacao" required />
+            </label>
+            <label>
+              <span>Valor</span>
+              <input id="amountInput" type="number" min="1" step="0.01" placeholder="250" required />
+            </label>
+            <label>
+              <span>Tipo</span>
+              <select id="typeInput">
+                <option value="expense">Despesa</option>
+                <option value="income">Receita</option>
+              </select>
+            </label>
+            <button class="primary-button" type="submit">Adicionar</button>
+          </form>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel cashflow-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Fluxo semanal</p>
+                <h2>Entradas vs saidas</h2>
+              </div>
+              <select id="rangeSelect" aria-label="Periodo">
+                <option value="month">Este mes</option>
+                <option value="quarter">Trimestre</option>
+                <option value="year">Ano</option>
+              </select>
+            </div>
+            <div class="chart" id="cashflowChart" aria-label="Grafico de fluxo de caixa"></div>
+          </article>
+
+          <article class="panel categories-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Categorias</p>
+                <h2>Gastos por area</h2>
+              </div>
+            </div>
+            <div class="category-list" id="categoryList"></div>
+          </article>
+
+          <article class="panel transactions-panel" id="transactions">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Historico</p>
+                <h2>Ultimas transacoes</h2>
+              </div>
+              <button class="ghost-button" id="resetButton">Restaurar demo</button>
+            </div>
+            <div class="filters-row" aria-label="Filtros de transacoes">
+              <input id="searchInput" type="search" placeholder="Buscar transacao" />
+              <select id="typeFilter" aria-label="Filtrar por tipo">
+                <option value="all">Todos</option>
+                <option value="income">Receitas</option>
+                <option value="expense">Despesas</option>
+              </select>
+            </div>
+            <div class="transactions-list" id="transactionsList"></div>
+          </article>
+
+          <article class="panel budget-panel" id="budgets">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Orcamentos</p>
+                <h2>Limites do mes</h2>
+              </div>
+            </div>
+            <div class="budget-list" id="budgetList"></div>
+          </article>
+        </section>
+
+        <section class="goals-band" id="goals">
+          <div>
+            <p class="eyebrow">Proximo passo</p>
+            <h2>Reserva de emergencia</h2>
+            <p>
+              Faltam R$ 6.450 para completar seis meses de custo fixo. Mantendo o ritmo atual, a
+              meta chega em novembro.
+            </p>
+          </div>
+          <div class="goal-stat">
+            <span>74%</span>
+            <small>R$ 18.550 de R$ 25.000</small>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
