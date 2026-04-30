@@ -396,7 +396,7 @@ input::placeholder {
 
 .category-list,
 .transactions-list,
-budget-list {
+.budget-list {
   display: grid;
   gap: 14px;
 }
